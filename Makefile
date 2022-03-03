@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 
 INTERNAL_LIBS = -lft -lgnl
 EXTERNAL_LIBS = -lm
@@ -40,10 +40,18 @@ HEADER_FILE = push_swap.h
 HEADER = $(addprefix $(INCLUDES_PATH)/,$(HEADER_FILE))
 
 SOURCE_FILES =	main.c\
+								init.c\
+								exit.c\
+								check.c\
+								parse.c\
+								free.c\
+
 
 SOURCES = $(addprefix $(SOURCES_PATH)/,$(SOURCE_FILES))
 
 OBJECTS = $(addprefix $(OBJECTS_PATH)/,$(subst .c,.o,$(SOURCE_FILES)))
+
+VALID_TEST_ARGS = "1 -2 -123 5 32544"
 
 all: $(NAME)
 
@@ -79,7 +87,7 @@ run: $(NAME)
 	./$(NAME) $(INPUT_FILE) $(CMD1) $(CMD2) $(OUTPUT_FILE)
 
 valgrind: $(NAME)
-	$(VALGRIND) ./$(NAME) $(INPUT_FILE) $(CMD1) $(CMD2) $(OUTPUT_FILE)
+	$(VALGRIND) ./$(NAME) $(VALID_TEST_ARGS)
 
 re:	fclean all
 

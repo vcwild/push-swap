@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/02/17 21:54:52 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/02 21:16:24 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 # define PUSH_SWAP
 
 /* libraries */
-# include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
-# include <errno.h>
 # include <sys/types.h>
-# include <sys/wait.h>
-
+# include <stdbool.h>
+# include <stdio.h>
 /* internal libraries */
 # include <libft.h>
 # include <get_next_line.h>
+
+#define STACK_MAX_SIZE 1024
+
+typedef struct s_stack
+{
+	int	top;
+	int	*vec;
+}		t_stack;
 
 /* handlers.c */
 /**
@@ -31,64 +36,15 @@
  *
  * @param s The error message to be printed
  */
-void	handle_exit(const char *s);
+void	die(t_stack *self, const char *s, int errno);
 
-/**
- * @brief Handles file read and write flags
- *
- * @param file The file to be handled
- * @param oflag The open permissions
- * @return int Returns the file descriptor for the open file
- */
-int		handle_rw(char *file, int oflag);
+int		init_stack(t_stack *self);
 
-/**
- * @brief Gets the absolute path to the cmd
- *
- * @param cmd The command to be searched inside the path
- * @param path The current environment path
- * @return char*
- */
-char	*get_abspath(char *cmd, const char *path);
+int handle_parse_args(t_stack *self, int argc, char *argv[]);
 
-/**
- * @brief Executes a subrountine to read the standard input
- *
- * @param argv The delimiter to stop reading the standard input
- */
-void	exec_read_stdin(char *delim);
+bool	check_duplicate_number(t_stack *self, int *num);
+bool	check_int(char *elem);
 
-/**
- * @brief Executes the command
- *
- * @param cmd The command to be executed
- * @param envp The environment where the command is located
- */
-void	exec_cmd(char *cmd, char *envp[]);
-
-/**
- * @brief Executes the intermediate pipe redirections
- *
- * @param cmd The command to be executed
- * @param envp The environment where the command is located
- */
-void	exec_redir(char *cmd, char *envp[]);
-
-/**
- * @brief Merges the two strings with a '/' in between
- *
- * @param origin The first string
- * @param other The second string
- * @return char* Returns the merged string
- */
-char	*help_slash_merge(char const *origin, char const *other);
-
-/**
- * @brief Parses the input while in here_doc mode
- *
- * @param delim The delimiter to stop reading the input
- * @param fd The file descriptor to output the parsed input
- */
-void	parse_here_doc(char *delim, int *fd);
+void	free_vec(void **vec);
 
 #endif
