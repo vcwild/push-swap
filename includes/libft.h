@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:38:07 by vwildner          #+#    #+#             */
-/*   Updated: 2022/02/11 20:10:40 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:02:23 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -487,5 +487,13 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
  * concatenated values of`origin` and `other` with '/' (slash) between them.
  */
 char		*ft_slashcat(const char *origin, const char *other);
+
+/**
+ * @brief Prints the content of a list to the standard error.
+ *
+ */
+void ft_perror(const char *msg);
+
+int	ft_isspace(char s);
 
 #endif

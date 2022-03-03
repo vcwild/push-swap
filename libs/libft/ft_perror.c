@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_perror.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/29 18:11:40 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/02 20:04:17 by vwildner         ###   ########.fr       */
+/*   Created: 2022/03/02 16:15:10 by vwildner          #+#    #+#             */
+/*   Updated: 2022/03/02 16:17:04 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void ft_perror(const char *msg)
 {
-	int	res;
-	int	is_neg;
-
-	is_neg = 0;
-	res = 0;
-	while (ft_isspace(*nptr))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
-	{
-		if (*nptr == '-')
-			is_neg = 1;
-		nptr++;
-	}
-	else if (*nptr == '+')
-		nptr++;
-	while (ft_isdigit(*nptr))
-		res = (res * 10) + (*nptr++ - 48);
-	if (is_neg)
-		return (res * -1);
-	return (res);
+	write(2, msg, ft_strlen(msg));
 }
