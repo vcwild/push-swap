@@ -27,20 +27,30 @@ static int	parse_single_arg(t_stack *self, char *arg)
 	char			**args_str;
 	int				curr_num;
 	int				status;
+	int				i;
 
 	status = 0;
-	curr_num = 0;
+	i = -1;
 	args_str = ft_split(arg, ' ');
-	while (args_str[++self->top] && !status)
+	while (args_str[++i] && !status)
 	{
-		if (check_int(args_str[self->top]))
+		if (check_int(args_str[i]))
+		{
+			printf("check_int\n");
 			status = 1;
-		if (atoi_to_buff(args_str[self->top], &curr_num))
+		}
+		if (atoi_to_buff(args_str[i], &curr_num))
+		{
+			printf("atoi\n");
 			status = 2;
+		}
 		if (check_duplicate_number(self, &curr_num))
+		{
+			printf("check_duplicate_number\n");
 			status = 3;
+		}
 		else
-			self->vec[self->top] = curr_num;
+			self->vec[++self->top] = curr_num;
 		printf("self->vec[%i]: %d\n", self->top, curr_num);
 	}
 	free_vec((void **)args_str);

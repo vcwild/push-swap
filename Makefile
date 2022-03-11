@@ -84,7 +84,10 @@ get_next_line_clean:
 	$(REMOVE) $(GNL_ARCHIVE)
 
 run: $(NAME)
-	./$(NAME) $(INPUT_FILE) $(CMD1) $(CMD2) $(OUTPUT_FILE)
+	./$(NAME) $(VALID_TEST_ARGS)
+
+debug: $(NAME)
+	gdb ./$(NAME) $(VALID_TEST_ARGS)
 
 valgrind: $(NAME)
 	$(VALGRIND) ./$(NAME) $(VALID_TEST_ARGS)
