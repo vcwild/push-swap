@@ -11,8 +11,7 @@
 
 ## Todo List
 
-[] Parsear inputs
-[] Parse program argv input
+[x] Parse program argv input
 [] Normalize input arguments
 [] Handle errors:
     [] Only accept numeric inputs
@@ -29,3 +28,23 @@
 - [Push Swap tester](https://github.com/laisarena/push_swap_tester)
 - [Visualizer](https://github.com/o-reo/push_swap_visualizer)
 - [aroque's project](https://github.com/AdrianWR/push_swap)
+
+## Algoritmo normalização
+
+- Menor número da pilha -> 0
+Condições:
+- Alcance: -2147483648 <= x < 2147483647
+
+### Como opera
+
+O menor número recebe 0 e o maior número recebe (n - 1) sendo n o número de argumentos inseridos. Os números do intervalo recebem i.
+
+Somatorio de i=0 até n - 1: 0, 1, 2, ..., n - 1
+
+### Exemplo
+
+input: 1 2 3
+n = 3
+normalizador -> input -> output
+
+output: 0, ..., 2

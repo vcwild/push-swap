@@ -45,7 +45,7 @@ SOURCE_FILES =	main.c\
 								check.c\
 								parse.c\
 								free.c\
-
+								helpers.c\
 
 SOURCES = $(addprefix $(SOURCES_PATH)/,$(SOURCE_FILES))
 
