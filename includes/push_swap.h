@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/11 09:02:24 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/12 14:31:43 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <sys/types.h>
 # include <stdbool.h>
 # include <stdio.h>
+// # include <stddef.h>
+
 /* internal libraries */
 # include <libft.h>
 # include <get_next_line.h>
@@ -47,7 +49,24 @@ bool		check_int(char *elem);
 
 void		free_vec(void **vec);
 
+/**
+ * @brief Checks if the stack is sorted
+ *
+ * @param self The stack to be checked
+ * @return true When the stack is sorted
+ * @return false When the stack is not sorted
+ */
 bool		is_sorted(t_stack *self);
+
+/**
+ * @brief Reverses the given vector.
+ * This is needed so that the vector is the inverse of the given input.
+ *
+ * @param vec The vector to be reversed
+ * @param size The size of the vector
+ */
 void		reverse_vec(int *vec, size_t size);
+
+int			normalize(int *origin, size_t size);
 
 #endif

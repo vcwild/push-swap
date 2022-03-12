@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:38:07 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/02 20:02:23 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/12 12:06:17 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -492,8 +492,25 @@ char		*ft_slashcat(const char *origin, const char *other);
  * @brief Prints the content of a list to the standard error.
  *
  */
-void ft_perror(const char *msg);
+void		ft_perror(const char *msg);
 
-int	ft_isspace(char s);
+int			ft_isspace(char s);
+
+/**
+ * @brief Swaps between two generic pointers
+ *
+ * @param v1 The first generic pointer
+ * @param v2 The second generic pointer
+ * @param size The reference size `sizeof(TypeT)`
+ */
+void		ft_swap(void *v1, void *v2, size_t size);
+
+/**
+ * @brief Gets the absolute value of a number
+ *
+ * @param n The number to get the absolute value of
+ * @return unsigned int Returns the absolute value of `n`
+ */
+unsigned int	ft_abs(int n);
 
 #endif

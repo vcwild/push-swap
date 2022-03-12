@@ -12,9 +12,9 @@
 ## Todo List
 
 [x] Parse program argv input
-[] Normalize input arguments
-[] Handle errors:
-    [] Only accept numeric inputs
+[x] Normalize input arguments
+[x] Handle errors:
+    [x] Only accept numeric inputs
 
 [] Fill one of the stacks with args (you can use linked list, double linked list or array)
 [] Implement stack operations:
