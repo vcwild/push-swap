@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:48:41 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/12 14:34:29 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/12 16:46:39 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char *argv[])
 		.top = -1,
 		.vec = (int *)ft_calloc(STACK_MAX_SIZE, sizeof(int))
 	};
-	if (argc < 2)
+	if (argc != 2)
 		die(&stack, "Invalid number of arguments provided", 1);
 	if (asked_for_help(argv[1]))
 		die(&stack, "", 0);

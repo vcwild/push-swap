@@ -26,6 +26,28 @@ class TestCli(unittest.TestCase):
 
         self.assertEqual(result, expected_result)
 
+    # def test_run_arbitrary_input(self):
+    #     command = [
+    #         f"./{CLI_NAME}", "-2147483648 1 2147483647"
+    #     ]
+    #     result = subprocess.run(command, capture_output=True).stdout
+
+    #     expected_result = "origin[0]: 2 \norigin[1]: 1 \norigin[2]: 0 \n"
+    #     expected_result = bytes(expected_result, "utf-8")
+
+    #     self.assertEqual(result, expected_result)
+
+    def test_invalid_number_of_inputs(self):
+        command = [
+            f"./{CLI_NAME}", "-2147483648 1 2147483647", "1"
+        ]
+
+        result = subprocess.run(command, capture_output=True).stderr
+
+        expected_result = "Error: Invalid number of arguments provided\n"
+        expected_result = bytes(expected_result, "utf-8")
+
+        self.assertEqual(result, expected_result)
 
 if __name__ == "__main__":
     unittest.main()
