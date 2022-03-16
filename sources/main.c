@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:48:41 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/12 16:46:39 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/15 22:38:19 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,6 @@ static int asked_for_help(const char *arg)
 	return (0);
 }
 
-// int	handle_normalization(t_stack *self)
-// {
-// 	int veclen;
-
-// 	veclen = ft_strlen(self->vec);
-
-// }
-
 int	main(int argc, char *argv[])
 {
 	t_stack stack;
@@ -48,9 +40,11 @@ int	main(int argc, char *argv[])
 		die(&stack, "", 0);
 	if (handle_parse_args(&stack, argc, argv))
 		die(&stack, "Parse args failed", 3);
-	if (is_sorted(&stack))
+	if (is_sorted(&stack) || stack.top <= 0)
 		die(&stack, "The stack is already sorted", 4);
 	if (normalize(stack.vec, stack.top + 1))
 		die(&stack, "Normalization failed", 5);
+	if (handle_sort_stack(&stack))
+		die(&stack, "Sort failed", 6);
 	die(&stack, "OK", 0);
 }
