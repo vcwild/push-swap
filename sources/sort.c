@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 20:38:09 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/16 01:57:59 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/16 22:33:16 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int	closest_above(t_stack *a, int n)
 
 void move_to_top(t_stack *a, t_stack *b)
 {
-	printf("move_to_top\n");
 	int	top_b;
 	int	to_move;
 
@@ -99,7 +98,6 @@ void move_to_top(t_stack *a, t_stack *b)
 
 int	handle_simple_default(t_stack *a, t_stack *b)
 {
-	printf("handle_simple_default\n");
 	exec_op_recursively(a, b, "pb", a->top - 2);
 	handle_three_elements(a);
 	while (b->top >= 0)
@@ -110,7 +108,6 @@ int	handle_simple_default(t_stack *a, t_stack *b)
 
 int	simple_sort(t_stack *a, t_stack *b)
 {
-	printf("simple sort\n");
 	if (a->top == 1)
 		return (handle_exec_op(a, NULL, "sa"));
 	if (a->top == 2)
