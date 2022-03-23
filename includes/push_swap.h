@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 07:15:17 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/23 07:27:48 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ void reverse_vec(int *vec, size_t size);
 
 int normalize(int *origin, size_t size);
 
-void exec_op(t_stack *a, t_stack *b, char *op_name);
-int min(t_stack *stack);
-int max(t_stack *stack);
+void	exec_op(t_stack *a, t_stack *b, char *op_name);
+int	min(t_stack *stack);
+int	max(t_stack *stack);
 
 int	handle_sort_stack(t_stack *stack);
 

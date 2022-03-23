@@ -6,13 +6,13 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:16:07 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 07:16:09 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/23 07:20:57 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void reverse_vec(int *vec, size_t size)
+void	reverse_vec(int *vec, size_t size)
 {
 	static size_t	i;
 

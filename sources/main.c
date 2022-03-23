@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:48:41 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/17 20:44:23 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/23 07:22:08 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // TODO: remove `!` from parse_multi_args if you want to implement this
 
-static int asked_for_help(const char *arg)
+static int	asked_for_help(const char *arg)
 {
 	if ((ft_strncmp(arg, "-h", 2) == 0)
 		|| (ft_strncmp(arg, "--help", 6) == 0))
@@ -27,7 +27,7 @@ static int asked_for_help(const char *arg)
 
 int	main(int argc, char *argv[])
 {
-	t_stack stack;
+	t_stack	stack;
 
 	stack = (t_stack)
 	{
@@ -49,5 +49,5 @@ int	main(int argc, char *argv[])
 	// for (int i = 0; i < 5; i++)
 	// 	printf("origin[%i]: %d \n", i, stack.vec[i]);
 	free(stack.vec);
-	// die(&stack, "", 0);
+	die(&stack, "", 0);
 }

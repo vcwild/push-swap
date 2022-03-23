@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:58:06 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/16 22:33:45 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/23 07:19:43 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ static void	isort_copy(int *origin, int *buffer, size_t size)
 	insertion_sort(buffer, size);
 }
 
-static	void relabel_vec_with_pos(int *reference, int *vec, int *buffer, int size)
+static void	relabel_vec_with_pos(int *reference,
+		int *vec, int *buffer, int size)
 {
 	int		i;
 	size_t	pos;
