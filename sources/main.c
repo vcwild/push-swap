@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:48:41 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 07:22:08 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/23 07:38:09 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,4 @@ int	main(int argc, char *argv[])
 	// for (int i = 0; i < 5; i++)
 	// 	printf("origin[%i]: %d \n", i, stack.vec[i]);
 	free(stack.vec);
-	die(&stack, "", 0);
 }
