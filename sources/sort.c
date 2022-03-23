@@ -5,52 +5,66 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 20:38:09 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/16 22:33:16 by vwildner         ###   ########.fr       */
+/*   Created: 2022/03/23 07:15:58 by vwildner          #+#    #+#             */
+/*   Updated: 2022/03/23 07:15:59 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	handle_exec_op(t_stack *a, t_stack *b, char *op_name)
+int	execute(char *op, t_stack *a, t_stack *b)
 {
-	exec_op(a, b, op_name);
-	write(STDOUT_FILENO, op_name, ft_strlen(op_name));
-	write(STDOUT_FILENO, "\n", 1);
+	if (ft_streq(op, PA))
+		push(b, a);
+	else if (ft_streq(op, PB))
+		push(a, b);
+	else if (ft_streq(op, SA))
+		swap(a);
+	else if (ft_streq(op, SB))
+		swap(b);
+	else if (ft_streq(op, RA))
+		rotate(a);
+	else if (ft_streq(op, RB))
+		rotate(b);
+	else if (ft_streq(op, RRA))
+		reverse_rotate(a);
+	else if (ft_streq(op, RRB))
+		reverse_rotate(b);
+	ft_putendl_fd(op, STDOUT_FILENO);
 	return (0);
 }
 
-int	handle_three_elements(t_stack *a)
+static int	small_sort(t_stack *a)
 {
 	if (a->vec[0] > a->vec[1] && a->vec[1] < a->vec[2] && a->vec[2] < a->vec[0])
-		return (handle_exec_op(a, NULL, "sa"));
-	if (a->vec[0] < a->vec[1] && a->vec[1] < a->vec[2] && a->vec[2] > a->vec[0])
+		execute(SA, a, NULL);
+	else if (a->vec[0] < a->vec[1] && a->vec[1] < a->vec[2] && a->vec[2] > a->vec[0])
 	{
-		handle_exec_op(a, NULL, "sa");
-		return (handle_exec_op(a, NULL, "rra"));
+		execute(SA, a, NULL);
+		execute(RRA, a, NULL);
 	}
-	if (a->vec[0] > a->vec[1] && a->vec[1] < a->vec[2] && a->vec[2] > a->vec[0])
-		return (handle_exec_op(a, NULL, "ra"));
-	if (a->vec[0] < a->vec[1] && a->vec[1] > a->vec[2] && a->vec[2] < a->vec[0])
+	else if (a->vec[0] > a->vec[1] && a->vec[1] < a->vec[2] && a->vec[2] > a->vec[0])
+		execute(RA, a, NULL);
+	else if (a->vec[0] < a->vec[1] && a->vec[1] > a->vec[2] && a->vec[2] < a->vec[0])
 	{
-		handle_exec_op(a, NULL, "sa");
-		return (handle_exec_op(a, NULL, "ra"));
+		execute(SA, a, NULL);
+		execute(RA, a, NULL);
 	}
-	if (a->vec[0] < a->vec[1] && a->vec[1] > a->vec[2] && a->vec[2] > a->vec[0])
-		return (handle_exec_op(a, NULL, "rra"));
-	// ft_perror("Unable to handle `three elements state`\n");
+	else if (a->vec[0] < a->vec[1] && a->vec[1] > a->vec[2] && a->vec[2] > a->vec[0])
+		execute(RRA, a, NULL);
 	return (0);
 }
 
-void exec_op_recursively(t_stack *a, t_stack *b, char *op_name, int times)
+void	execute_recursively(char *op, t_stack *a, t_stack *b, int times)
 {
 	if (times <= 0)
 		return ;
-	handle_exec_op(a, b, op_name);
-	exec_op_recursively(a, b, op_name, times - 1);
+	execute(op, a, b);
+	execute_recursively(op, a, b, times - 1);
 }
 
-void smart_rotate_a(t_stack *a, int n)
+
+void	smart_rotate_a(t_stack *a, int n)
 {
 	int	find;
 
@@ -60,87 +74,73 @@ void smart_rotate_a(t_stack *a, int n)
 	if (find < 0)
 		return ;
 	else if (find < a->top / 2)
-		exec_op_recursively(a, NULL, "rra", find + 1);
+		execute_recursively(RRA, a, NULL, find + 1);
 	else
-		exec_op_recursively(a, NULL, "ra", a->top - find);
+		execute_recursively(RA, a, NULL, a->top - find);
 }
 
 int	closest_above(t_stack *a, int n)
 {
-	int	k;
+	int	highest_num_found;
 	int	i;
 
 	if (a->top < 0 || n > max(a))
 		return (n);
 	i = 0;
-	k = max(a);
+	highest_num_found = max(a);
 	while (i <= a->top)
 	{
-		if (a->vec[i] > n && a->vec[i] < k)
-			k = a->vec[i];
+		if (a->vec[i] > n && a->vec[i] < highest_num_found)
+			highest_num_found = a->vec[i];
 		i++;
 	}
-	return (k);
+	return (highest_num_found);
 }
 
-void move_to_top(t_stack *a, t_stack *b)
+static void	put_top_in_position(t_stack *a, t_stack *b)
 {
 	int	top_b;
-	int	to_move;
+	int	num_to_move;
 
 	top_b = b->vec[b->top];
-	to_move = closest_above(a, top_b);
-	if (to_move == top_b)
-		to_move = min(a);
-	smart_rotate_a(a, to_move);
-	handle_exec_op(a, b, "pa");
+	num_to_move = closest_above(a, top_b);
+	if (num_to_move == top_b)
+		num_to_move = min(a);
+	smart_rotate_a(a, num_to_move);
+	execute(PA, a, b);
 }
 
-int	handle_simple_default(t_stack *a, t_stack *b)
+static int	small_sort_complex(t_stack *a, t_stack *b)
 {
-	exec_op_recursively(a, b, "pb", a->top - 2);
-	handle_three_elements(a);
+	execute_recursively(PB, a, b, a->top - 2);
+	small_sort(a);
 	while (b->top >= 0)
-		move_to_top(a, b);
+		put_top_in_position(a, b);
 	smart_rotate_a(a, 0);
 	return (0);
 }
 
-int	simple_sort(t_stack *a, t_stack *b)
+int	handle_small_complexity(t_stack *a, t_stack *b)
 {
 	if (a->top == 1)
-		return (handle_exec_op(a, NULL, "sa"));
+		return (execute(SA, a, NULL));
 	if (a->top == 2)
-		return (handle_three_elements(a));
-	return (handle_simple_default(a, b));
+		return (small_sort(a));
+	return (small_sort_complex(a, b));
 }
 
-int complex_sort(t_stack *a, t_stack *b)
-{
-	b->vec = NULL;
-	die(a, "Not implemented yet", 28);
-	return (-1);
-}
-
-int	sort_stack(t_stack *a, t_stack *b)
-{
-	if (a->top < STACK_SIMPLE_SORT_MAX_MEMBERS)
-		return (simple_sort(a, b));
-	return (complex_sort(a, b));
-}
-
-int	handle_sort_stack(t_stack *stack)
+void	handle_sort(t_stack *stack)
 {
 	t_stack alt_stack;
-	int	status;
 
-	status = 0;
 	alt_stack = (t_stack)
 	{
 		.top = -1,
 		.vec = (int *)ft_calloc(STACK_MAX_SIZE, sizeof(int))
 	};
-	status = sort_stack(stack, &alt_stack);
+	if (stack->top < STACK_SIMPLE_SORT_MAX_MEMBERS)
+		handle_small_complexity(stack, &alt_stack);
+	// else
+	// 	sort_complex(stack, &alt_stack);
 	free(alt_stack.vec);
-	return (status);
 }

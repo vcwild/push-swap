@@ -47,9 +47,9 @@ SOURCE_FILES =	main.c\
 								free.c\
 								helpers.c\
 								algorithms.c\
-								sort.c\
 								operations.c\
 								math.c\
+								sort.c\
 
 SOURCES = $(addprefix $(SOURCES_PATH)/,$(SOURCE_FILES))
 

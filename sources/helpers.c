@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helpers.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/23 07:16:07 by vwildner          #+#    #+#             */
+/*   Updated: 2022/03/23 07:16:09 by vwildner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void reverse_vec(int *vec, size_t size)
@@ -23,4 +35,9 @@ bool	is_sorted(t_stack *self)
 			return (false);
 	}
 	return (true);
+}
+
+bool	ft_streq(const char *s1, const char *s2)
+{
+	return (!(ft_strncmp(s1, s2, ft_strlen(s2) + 1)));
 }

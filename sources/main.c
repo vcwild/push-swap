@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:48:41 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/16 22:34:44 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/17 20:44:23 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int asked_for_help(const char *arg)
 	if ((ft_strncmp(arg, "-h", 2) == 0)
 		|| (ft_strncmp(arg, "--help", 6) == 0))
 	{
-		write(STDOUT_FILENO, "Usage: ./push_swap [numbers]\n", 29);
+		write(STDOUT_FILENO, "Usage: ./push_swap \"[numbers]\"\n", 29);
 		return (1);
 	}
 	return (0);
@@ -44,8 +44,8 @@ int	main(int argc, char *argv[])
 		die(&stack, "", 4);
 	if (normalize(stack.vec, stack.top + 1))
 		die(&stack, "Normalization failed", 5);
-	if (handle_sort_stack(&stack))
-		die(&stack, "Sort failed", 6);
+	handle_sort(&stack);
+		// die(&stack, "Sort failed", 6);
 	// for (int i = 0; i < 5; i++)
 	// 	printf("origin[%i]: %d \n", i, stack.vec[i]);
 	free(stack.vec);

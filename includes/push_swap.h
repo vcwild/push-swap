@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/16 01:01:54 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/23 07:15:17 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,19 @@
 #include <libft.h>
 #include <get_next_line.h>
 
+/** literals */
 #define STACK_MAX_SIZE 1024
 #define STACK_SIMPLE_SORT_MAX_MEMBERS 5
+
+//* constants */
+# define SA "sa"
+# define SB "sb"
+# define PA "pa"
+# define PB "pb"
+# define RA "ra"
+# define RB "rb"
+# define RRA "rra"
+# define RRB "rrb"
 
 typedef struct s_stack
 {
@@ -81,5 +92,13 @@ int min(t_stack *stack);
 int max(t_stack *stack);
 
 int	handle_sort_stack(t_stack *stack);
+
+void	push(t_stack *origin, t_stack *dest);
+void	swap(t_stack *stack);
+void	rotate(t_stack *stack);
+void	reverse_rotate(t_stack *stack);
+
+void	handle_sort(t_stack *stack); //from third party
+bool	ft_streq(const char *s1, const char *s2);
 
 #endif
