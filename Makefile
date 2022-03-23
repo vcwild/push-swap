@@ -49,7 +49,10 @@ SOURCE_FILES =	main.c\
 								algorithms.c\
 								operations.c\
 								math.c\
-								sort.c\
+								sort_simple.c\
+								sort_complex.c\
+								execute.c\
+								handlers.c\
 
 SOURCES = $(addprefix $(SOURCES_PATH)/,$(SOURCE_FILES))
 
