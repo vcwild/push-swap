@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 08:35:31 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 09:03:03 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/23 19:31:22 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	handle_simple_complexity(t_stack *a, t_stack *b)
 
 static int handle_high_complexity(t_stack *a, t_stack *b)
 {
-	complex_sort(a, &b);
+	complex_sort(a, b);
 	return (0);
 }
 

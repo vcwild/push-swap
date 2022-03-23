@@ -60,6 +60,8 @@ OBJECTS = $(addprefix $(OBJECTS_PATH)/,$(subst .c,.o,$(SOURCE_FILES)))
 
 VALID_TEST_ARGS = "1 -2 -123 5 32544"
 
+TEST_CLI_CMD =  python3 -m unittest tests.test_cli -c
+
 all: $(NAME)
 
 $(NAME): build_get_next_line build_libft $(OBJECTS) $(HEADER)
@@ -99,6 +101,9 @@ debug: $(NAME)
 valgrind: $(NAME)
 	$(VALGRIND) ./$(NAME) $(VALID_TEST_ARGS)
 
+test: $(NAME)
+	@$(TEST_CLI_CMD) > /dev/null
+
 re:	fclean all
 
 archives_clean:
@@ -110,4 +115,4 @@ clean:
 fclean: clean archives_clean libft_clean get_next_line_clean
 	$(REMOVE) $(NAME)
 
-.PHONY: all run valgrind re fclean clean archives_clean libft_clean get_next_line_clean
+.PHONY: all run valgrind re fclean clean archives_clean libft_clean get_next_line_clean test
