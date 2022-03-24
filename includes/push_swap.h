@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 09:03:50 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/23 21:40:02 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,16 @@
 
 //* constants */
 # define SA "sa"
+# define SS "ss"
 # define SB "sb"
 # define PA "pa"
 # define PB "pb"
 # define RA "ra"
 # define RB "rb"
+# define RR "rr"
 # define RRA "rra"
 # define RRB "rrb"
+# define RRR "rrr"
 
 typedef struct s_stack
 {
