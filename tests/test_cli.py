@@ -1,22 +1,10 @@
 import unittest
 import subprocess
 
-CLI_NAME = "push_swap"
+from .fixtures import BuildTestCase, CLI_NAME
 
 
-class TestCli(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        command = [
-            "make",
-        ]
-        subprocess.call(command)
-
-    @classmethod
-    def tearDownClass(cls):
-        command = ["make", "clean"]
-        subprocess.call(command)
-
+class TestCli(BuildTestCase):
     def test_run_version(self):
         command = [f"./{CLI_NAME}", "-h"]
         result = subprocess.run(command, capture_output=True).stdout
