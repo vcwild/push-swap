@@ -23,7 +23,9 @@ COPY = cp -p
 
 REMOVE = rm -rf
 
-OBJECTS_PATH = ./objects
+# /* Push Swap */
+
+OBJECTS_PATH = ./objects/push_swap
 SOURCES_PATH = ./sources/push_swap
 INCLUDES_PATH = ./includes
 LIBS_PATH = ./libs
@@ -52,8 +54,30 @@ SOURCES = $(addprefix $(SOURCES_PATH)/,$(SOURCE_FILES))
 
 OBJECTS = $(addprefix $(OBJECTS_PATH)/,$(subst .c,.o,$(SOURCE_FILES)))
 
-VALID_TEST_ARGS = "1 -2 -123 5 32544"
+# /* Checkerlib */
 
+CHECKER_NAME = checker
+CHECKER_HEADER_FILE = checker.h
+CHECKER_HEADER = $(addprefix $(INCLUDES_PATH)/,$(CHECKER_HEADER_FILE))
+CHECKER_SOURCES_PATH = ./sources/checker
+
+CHECKER_SOURCE_FILES = exec.c\
+											 utils.c\
+											 checker.c\
+
+CHECKER_OBJECTS_PATH = ./objects/checker
+CHECKER_OBJECTS = $(addprefix $(CHECKER_OBJECTS_PATH)/,$(subst .c,.o,$(CHECKER_SOURCE_FILES)))
+
+SOURCES_FOR_CHECKER = free.c\
+											parse.c\
+											helpers.c\
+											operations.c\
+											check.c\
+											exit.c\
+
+OBJECTS_FOR_CHECKER = $(addprefix $(OBJECTS_PATH)/,$(subst .c,.o,$(SOURCES_FOR_CHECKER)))
+
+VALID_TEST_ARGS = "1 -2 -123 5 32544"
 TEST_CLI_CMD =  python3 -m unittest tests.test_cli -c
 
 all: $(NAME)
@@ -61,8 +85,15 @@ all: $(NAME)
 $(NAME): build_get_next_line build_libft $(OBJECTS) $(HEADER)
 	@$(CC) $(CFLAGS) -w -g $(OBJECTS) -o $(NAME) -L $(ARCHIVES_PATH) -I $(INCLUDES_PATH) $(EXTERNAL_LIBS) $(INTERNAL_LIBS)
 
+$(CHECKER_NAME): $(CHECKER_OBJECTS) $(CHECKER_HEADER) $(NAME)
+	@$(CC) $(CFLAGS) -w -g $(CHECKER_OBJECTS) $(OBJECTS_FOR_CHECKER) -o $(CHECKER_NAME) -L $(ARCHIVES_PATH) -I $(INCLUDES_PATH) $(EXTERNAL_LIBS) $(INTERNAL_LIBS)
+
 $(OBJECTS_PATH)/%.o: $(SOURCES_PATH)/%.c $(HEADER)
 	@$(SAFE_MKDIR) $(OBJECTS_PATH)
+	@$(CC) $(CFLAGS) -g -I $(INCLUDES_PATH) -o $@ -c $< $(EXTERNAL_LIBS)
+
+$(CHECKER_OBJECTS_PATH)/%.o: $(CHECKER_SOURCES_PATH)/%.c $(CHECKER_HEADER) $(HEADER)
+	@$(SAFE_MKDIR) $(CHECKER_OBJECTS_PATH)
 	@$(CC) $(CFLAGS) -g -I $(INCLUDES_PATH) -o $@ -c $< $(EXTERNAL_LIBS)
 
 local_mkdir:
@@ -104,9 +135,9 @@ archives_clean:
 	$(REMOVE) $(ARCHIVES_PATH)
 
 clean:
-	$(REMOVE) $(OBJECTS_PATH)
+	$(REMOVE) $(OBJECTS_PATH) $(CHECKER_OBJECTS_PATH)
 
 fclean: clean archives_clean libft_clean get_next_line_clean
-	$(REMOVE) $(NAME)
+	$(REMOVE) $(NAME) $(CHECKER_NAME)
 
 .PHONY: all run valgrind re fclean clean archives_clean libft_clean get_next_line_clean test

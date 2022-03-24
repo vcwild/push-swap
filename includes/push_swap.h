@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 21:40:02 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/24 01:10:06 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ bool		is_sorted(t_stack *self);
  * @param size The size of the vector
  */
 void		reverse_vec(int *vec, size_t size);
+
+int			parse_single_arg(t_stack *self, char *arg);
 
 int			normalize(int *origin, size_t size);
 

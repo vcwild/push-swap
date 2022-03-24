@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:17:13 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 19:45:26 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/24 01:09:25 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static bool	atoi_to_buff(const char *str, int *buff)
 	return (false);
 }
 
-static int	parse_single_arg(t_stack *self, char *arg)
+int	parse_single_arg(t_stack *self, char *arg)
 {
 	char			**args_str;
 	int				curr_num;
@@ -74,7 +74,9 @@ int	handle_parse_args(t_stack *self, int argc, char *argv[])
 			return (1);
 		return (0);
 	}
-	if (!parse_multi_args(self, argc, argv))
-		return (2);
-	return (0);
+	// if (!parse_multi_args(self, argc, argv))
+	// 	return (2);
+	if (argc < 2)
+		return (1);
+	return (1);
 }
