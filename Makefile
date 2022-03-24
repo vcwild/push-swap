@@ -16,12 +16,6 @@ GNL = libgnl.a
 GNL_PATH = $(LIBS_PATH)/get_next_line
 GNL_ARCHIVE = $(ARCHIVES_PATH)/$(GNL)
 
-INPUT_FILE = input_file
-CMD1 = "cat"
-CMD2 = "grep -i pipex"
-
-OUTPUT_FILE = output_file
-
 MAKE_EXTERNAL = make -C
 SAFE_MKDIR = mkdir -p
 
@@ -30,7 +24,7 @@ COPY = cp -p
 REMOVE = rm -rf
 
 OBJECTS_PATH = ./objects
-SOURCES_PATH = ./sources
+SOURCES_PATH = ./sources/push_swap
 INCLUDES_PATH = ./includes
 LIBS_PATH = ./libs
 ARCHIVES_PATH = ./archives
@@ -93,7 +87,7 @@ get_next_line_clean:
 	$(REMOVE) $(GNL_ARCHIVE)
 
 run: $(NAME)
-	./$(NAME) $(VALID_TEST_ARGS)
+	@./$(NAME) $(VALID_TEST_ARGS)
 
 debug: $(NAME)
 	gdb ./$(NAME) $(VALID_TEST_ARGS)
