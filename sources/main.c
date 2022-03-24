@@ -6,13 +6,11 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:48:41 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 19:23:35 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/23 21:32:42 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// TODO: remove `!` from parse_multi_args if you want to implement this
 
 static int	asked_for_help(const char *arg)
 {
@@ -41,12 +39,12 @@ int	main(int argc, char *argv[])
 	if (handle_parse_args(&stack, argc, argv))
 		die(&stack, "Parse args failed", 3);
 	if (is_sorted(&stack) || stack.top <= 0)
-		die(&stack, "", 4);
+		die(&stack, "", 0);
 	if (normalize(stack.vec, stack.top + 1))
-		die(&stack, "Normalization failed", 5);
+		die(&stack, "Normalization failed", 4);
 	handle_sort(&stack);
 		// die(&stack, "Sort failed", 6);
 	// for (int i = 0; i < 5; i++)
 	// 	printf("origin[%i]: %d \n", i, stack.vec[i]);
-	free(stack.vec);
+	die(&stack, "", 0);
 }
