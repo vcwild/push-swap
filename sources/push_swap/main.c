@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:48:41 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 21:32:42 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/25 01:03:26 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(int argc, char *argv[])
 		die(&stack, "", 0);
 	if (normalize(stack.vec, stack.top + 1))
 		die(&stack, "Normalization failed", 4);
-	handle_sort(&stack);
-		// die(&stack, "Sort failed", 6);
+	if (handle_sort(&stack))
+		die(&stack, "Sorting failed", 5);
 	// for (int i = 0; i < 5; i++)
 	// 	printf("origin[%i]: %d \n", i, stack.vec[i]);
 	die(&stack, "", 0);

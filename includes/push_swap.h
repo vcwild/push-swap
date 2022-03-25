@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/24 01:10:06 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/25 01:00:20 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,15 +102,19 @@ void		swap(t_stack *stack);
 void		rotate(t_stack *stack);
 void		reverse_rotate(t_stack *stack);
 
-void		handle_sort(t_stack *stack); //from third party
+int			handle_sort(t_stack *stack);
 bool		ft_streq(const char *s1, const char *s2);
 
 int			execute(char *op, t_stack *a, t_stack *b);
 void		execute_recursively(char *op, t_stack *a, t_stack *b, int times);
 void		execute_rotate_a(t_stack *a, int n);
+void		execute_rotate_b(t_stack *b, int n);
+
+int			closest_above(t_stack *a, int n);
 
 int			simple_sort(t_stack *a);
 int			simple_sort_complete(t_stack *a, t_stack *b);
+
 
 void		complex_sort(t_stack *a, t_stack *b);
 

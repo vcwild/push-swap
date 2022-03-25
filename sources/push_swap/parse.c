@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:17:13 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/24 01:09:25 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/25 00:53:59 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,6 @@ int	parse_single_arg(t_stack *self, char *arg)
 	return (status);
 }
 
-static int parse_multi_args(t_stack *self, int argc, char *argv[])
-{
-	self->top = -1;
-	printf("Parsing multi args\n, argc = %d\n, argv = %s\n", argc, *argv);
-	return (0);
-}
-
 int	handle_parse_args(t_stack *self, int argc, char *argv[])
 {
 	if (argc == 2)
@@ -74,9 +67,5 @@ int	handle_parse_args(t_stack *self, int argc, char *argv[])
 			return (1);
 		return (0);
 	}
-	// if (!parse_multi_args(self, argc, argv))
-	// 	return (2);
-	if (argc < 2)
-		return (1);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 08:35:31 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 19:31:22 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/25 01:00:04 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int handle_high_complexity(t_stack *a, t_stack *b)
 	return (0);
 }
 
-void	handle_sort(t_stack *stack)
+int	handle_sort(t_stack *stack)
 {
 	t_stack alt_stack;
 
@@ -41,4 +41,5 @@ void	handle_sort(t_stack *stack)
 	else
 		handle_high_complexity(stack, &alt_stack);
 	free(alt_stack.vec);
+	return (0);
 }
