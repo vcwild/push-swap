@@ -135,9 +135,9 @@ archives_clean:
 	$(REMOVE) $(ARCHIVES_PATH)
 
 clean:
-	$(REMOVE) $(OBJECTS_PATH) $(CHECKER_OBJECTS_PATH)
+	$(REMOVE) $(OBJECTS_PATH)
 
 fclean: clean archives_clean libft_clean get_next_line_clean
-	$(REMOVE) $(NAME) $(CHECKER_NAME)
+	$(REMOVE) $(NAME)
 
 .PHONY: all run valgrind re fclean clean archives_clean libft_clean get_next_line_clean test
