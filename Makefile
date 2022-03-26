@@ -49,6 +49,8 @@ SOURCE_FILES =	main.c\
 								sort_complex.c\
 								execute.c\
 								handlers.c\
+								find.c\
+								move.c\
 
 SOURCES = $(addprefix $(SOURCES_PATH)/,$(SOURCE_FILES))
 

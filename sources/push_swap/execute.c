@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 08:29:44 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 22:03:16 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/26 18:58:19 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,19 @@ void	execute_rotate_b(t_stack *b, int n)
 		execute_recursively(RRB, NULL, b, find + 1);
 	else
 		execute_recursively(RB, NULL, b, b->top - find);
+}
+
+void	execute_rotate_find_closest_above(t_stack *a, t_stack *b)
+{
+	int	top_b;
+	int	to_move;
+
+	top_b = b->vec[b->top];
+	to_move = find_closest_above(a, top_b);
+	if (to_move == top_b && a->top >= 0)
+		to_move = min(a);
+	execute_rotate_a(a, to_move);
+	execute(PA, a, b);
 }
 
 // void execute_rotate(t_stack *self, int n, char *op, char *reverse_op)

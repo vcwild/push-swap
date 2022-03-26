@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/25 01:00:20 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/26 19:05:39 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,15 @@ int			execute(char *op, t_stack *a, t_stack *b);
 void		execute_recursively(char *op, t_stack *a, t_stack *b, int times);
 void		execute_rotate_a(t_stack *a, int n);
 void		execute_rotate_b(t_stack *b, int n);
+void		execute_rotate_find_closest_above(t_stack *a, t_stack *b);
 
-int			closest_above(t_stack *a, int n);
+int			find_from_top(t_stack *a, int min_index, int max_index);
+int			find_from_bottom(t_stack *a, int min_index, int max_index);
+
+void		move_chunk_to_top(t_stack *a, t_stack *b, int min, int max);
+void		move_closest_index_from_b_to_top(t_stack *b);
+
+int			find_closest_above(t_stack *a, int n);
 
 int			simple_sort(t_stack *a);
 int			simple_sort_complete(t_stack *a, t_stack *b);
