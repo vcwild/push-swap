@@ -13,10 +13,24 @@ jobs:
       - uses: actions/checkout@v2
       - name: Compile the program
         run: make
-  tests:
+  test_cli:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run integration tests
+      - name: Test cli
         run: python -m unittest tests.test_cli -c
+  test_simple_exec:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test simple algorithm
+        run: perl runner.pl 5 --checker
+  test_complex_exec:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test complex algorithm
+        run: perl runner.pl 150 --checker
