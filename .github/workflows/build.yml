@@ -26,11 +26,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test simple algorithm
-        run: perl runner.pl 5 --checker
+        run: |
+          sudo apt-get install -y libipc-run3-perl
+          make push_swap
+          perl runner.pl 5 --checker
   test_complex_exec:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Test complex algorithm
-        run: perl runner.pl 150 --checker
+        run: |
+          sudo apt-get install -y libipc-run3-perl
+          make push_swap
+          perl runner.pl 150 --checker
