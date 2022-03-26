@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 08:33:40 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 08:47:11 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:53:23 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@ int	simple_sort(t_stack *a)
 {
 	if (a->vec[0] > a->vec[1] && a->vec[1] < a->vec[2] && a->vec[2] < a->vec[0])
 		execute(SA, a, NULL);
-	else if (a->vec[0] < a->vec[1] && a->vec[1] < a->vec[2] && a->vec[2] > a->vec[0])
+	else if (a->vec[0] < a->vec[1]
+		&& a->vec[1] < a->vec[2] && a->vec[2] > a->vec[0])
 	{
 		execute(SA, a, NULL);
 		execute(RRA, a, NULL);
 	}
-	else if (a->vec[0] > a->vec[1] && a->vec[1] < a->vec[2] && a->vec[2] > a->vec[0])
+	else if (a->vec[0] > a->vec[1]
+		&& a->vec[1] < a->vec[2] && a->vec[2] > a->vec[0])
 		execute(RA, a, NULL);
-	else if (a->vec[0] < a->vec[1] && a->vec[1] > a->vec[2] && a->vec[2] < a->vec[0])
+	else if (a->vec[0] < a->vec[1]
+		&& a->vec[1] > a->vec[2] && a->vec[2] < a->vec[0])
 	{
 		execute(SA, a, NULL);
 		execute(RA, a, NULL);
 	}
-	else if (a->vec[0] < a->vec[1] && a->vec[1] > a->vec[2] && a->vec[2] > a->vec[0])
+	else if (a->vec[0] < a->vec[1]
+		&& a->vec[1] > a->vec[2] && a->vec[2] > a->vec[0])
 		execute(RRA, a, NULL);
 	return (0);
 }

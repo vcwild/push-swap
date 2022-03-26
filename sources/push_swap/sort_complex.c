@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:15:58 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/25 00:52:01 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:56:21 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	move_to_top(t_stack *a, int min, int max)
 	execute_rotate_a(a, a->vec[i]);
 }
 
-void move_chunk_to_top(t_stack *a, t_stack *b, int min, int max)
+void	move_chunk_to_top(t_stack *a, t_stack *b, int min, int max)
 {
 	int	size;
 
@@ -109,7 +109,6 @@ void	put_in_position(t_stack *a, t_stack *b)
 	execute(PA, a, b);
 }
 
-
 void	sort_chunk(t_stack *a, t_stack *b)
 {
 	while (b->top >= 0)
@@ -127,14 +126,14 @@ size_t	set_chunks(int size, int chunk_size)
 	return (chunk);
 }
 
-int set_min_index(t_stack *self, size_t chunks, int step)
+int	set_min_index(t_stack *self, size_t chunks, int step)
 {
 	if (chunks == 1)
-		return(min(self));
+		return (min(self));
 	return (max(self) - step + 1);
 }
 
-void complex_sort(t_stack *a, t_stack *b)
+void	complex_sort(t_stack *a, t_stack *b)
 {
 	size_t			chunks;
 	size_t			step;

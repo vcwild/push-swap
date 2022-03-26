@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:58:06 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 07:19:43 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:09:49 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ int	normalize(int *origin, size_t size)
 	isort_copy(origin, copy, size);
 	relabel_vec_with_pos(origin, vec, copy, (int)size);
 	ft_memcpy(origin, vec, size * sizeof(*vec));
-	// for (int i = 0; i < (int)size; i++)
-	// 	printf("origin[%i]: %d \n", i, origin[i]);
 	free(copy);
 	free(vec);
 	return (0);
