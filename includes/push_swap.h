@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/29 20:11:11 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 20:17:32 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 # define PUSH_SWAP
 
 /* libraries */
-#include <unistd.h>
-#include <sys/types.h>
-#include <stdbool.h>
-#include <stdio.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <stdbool.h>
+# include <stdio.h>
 
 /* internal libraries */
-#include <libft.h>
-#include <get_next_line.h>
+# include <libft.h>
+# include <get_next_line.h>
 
 /* literals */
-#define STACK_MAX_SIZE 1024
-#define STACK_SIMPLE_SORT_MAX_MEMBERS 5
+# define STACK_MAX_SIZE 1024
+# define STACK_SIMPLE_SORT_MAX_MEMBERS 5
 
 /* constants */
 # define SA "sa"
@@ -47,8 +47,8 @@
  */
 typedef struct s_stack
 {
-	int top;
-	int *vec;
+	int	top;
+	int	*vec;
 }	t_stack;
 
 /**
@@ -114,7 +114,7 @@ void		reverse_vec(int *vec, size_t size);
  *
  * @return false When the strings are equal
  */
-bool	not_strncmp(const char *s1, const char *s2);
+bool		not_strncmp(const char *s1, const char *s2);
 
 /**
  * @brief Normalizes the input.
@@ -142,7 +142,8 @@ int			min(t_stack *self);
 int			max(t_stack *self);
 
 /**
- * @brief Pushes a number from the `origin` stack vector to the `dest` stack vector.
+ * @brief Pushes a number from the `origin` stack vector to the
+ * `dest` stack vector.
  *
  * @param origin The origin stack
  * @param dest The destination stack
@@ -158,7 +159,8 @@ void		swap(t_stack *self);
 
 /**
  * @brief Rotates the stack instance vector to the left,
- * moving the first element to the end and moving every other element one place to the left.
+ * moving the first element to the end and moving every
+ * other element one place to the left.
  *
  * @param self The stack instance to be rotated
  */
@@ -166,7 +168,8 @@ void		rotate(t_stack *self);
 
 /**
  * @brief Reverse rotates the stack instance vector to the right,
- * moving the last element to the beginning and moving every other element one place to the right.
+ * moving the last element to the beginning and moving every other
+ * element one place to the right.
  *
  * @param self The stack instance to be reverse rotated
  */
@@ -220,7 +223,8 @@ void		execute_rotate(t_stack *self, int n, char *op, char *reverse_op);
 void		execute_rotate_closest_above_and_push(t_stack *a, t_stack *b);
 
 /**
- * @brief Searches from the top of the stack a valid number within range of `min_i` and `max_i`
+ * @brief Searches from the top of the stack a valid number within range
+ * of `min_i` and `max_i`
  *
  * @param a The instance of the stack to be searched
  * @param min_index The minimum index to be searched
@@ -230,7 +234,8 @@ void		execute_rotate_closest_above_and_push(t_stack *a, t_stack *b);
 int			find_from_top(t_stack *a, int min_index, int max_index);
 
 /**
- * @brief Searches from the bottom of the stack a valid number within range of `min_i` and `max_i`
+ * @brief Searches from the bottom of the stack a valid number within
+ * range of `min_i` and `max_i`
  *
  * @param a The instance of the stack to be searched
  * @param min_index The minimum index to be searched
@@ -250,7 +255,8 @@ int			find_from_bottom(t_stack *a, int min_index, int max_index);
 void		move_chunk_to_top(t_stack *a, t_stack *b, int min, int max);
 
 /**
- * @brief Moves the closest element to the top of the stack to the top of the stack
+ * @brief Moves the closest element to the top of the stack to the top
+ * of the stack
  *
  * @param b The second stack instance
  */
@@ -283,7 +289,8 @@ int			simple_sort(t_stack *a);
 int			simple_sort_complete(t_stack *a, t_stack *b);
 
 /**
- * @brief Deals with every possible case of for complex sort algorithm up to 500 elements
+ * @brief Deals with every possible case of for complex sort algorithm
+ * up to 500 elements
  *
  * @param a The first stack instance
  * @param b The second stack instance

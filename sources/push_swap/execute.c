@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 08:29:44 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/29 19:28:02 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 20:14:39 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	execute_rotate_closest_above_and_push(t_stack *a, t_stack *b)
 	execute(PA, a, b);
 }
 
-void execute_rotate(t_stack *self, int n, char *op, char *reverse_op)
+void	execute_rotate(t_stack *self, int n, char *op, char *reverse_op)
 {
 	int	find;
 
