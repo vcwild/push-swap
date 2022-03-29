@@ -1,4 +1,4 @@
-name: generic-pipeline
+name: complete-checking
 
 on:
   push:
@@ -17,7 +17,6 @@ jobs:
           pip install norminette
           norminette sources/ includes/
   build:
-    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
