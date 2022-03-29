@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:16:07 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 07:20:57 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:47:41 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ bool	is_sorted(t_stack *self)
 	return (true);
 }
 
-bool	ft_streq(const char *s1, const char *s2)
+bool	not_strncmp(const char *s1, const char *s2)
 {
 	return (!(ft_strncmp(s1, s2, ft_strlen(s2) + 1)));
 }

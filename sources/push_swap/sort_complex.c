@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:15:58 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/26 19:05:39 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 19:25:52 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	sort_chunk(t_stack *a, t_stack *b)
 	while (b->top >= 0)
 	{
 		move_closest_index_from_b_to_top(b);
-		execute_rotate_find_closest_above(a, b);
+		execute_rotate_closest_above_and_push(a, b);
 	}
 }
 
@@ -56,5 +56,5 @@ void	complex_sort(t_stack *a, t_stack *b)
 		max_index = min_index - 1;
 		chunks--;
 	}
-	execute_rotate_a(a, min(a));
+	execute_rotate(a, min(a), RA, RRA);
 }

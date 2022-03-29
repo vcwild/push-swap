@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:17:13 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/25 00:53:59 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 19:23:29 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,29 @@ static bool	atoi_to_buff(const char *str, int *buff)
 	return (false);
 }
 
-int	parse_single_arg(t_stack *self, char *arg)
+/**
+ * @brief Frees the entire memory allocated for a matrix
+ *
+ * @param vec The matrix to be freed
+ */
+static void	free_vec(void **vec)
+{
+	size_t	i;
+
+	i = 0;
+	while (vec[i])
+		free(vec[i++]);
+	free(vec);
+}
+
+/**
+ * @brief Parses a string of numbers separated by spaces and returns an array
+ *
+ * @param self The instance of the stack to push the numbers to
+ * @param arg The input string to parse
+ * @return int Returns 0 on success, and a positive integer on error
+ */
+static int	parse_single_arg(t_stack *self, char *arg)
 {
 	char			**args_str;
 	int				curr_num;

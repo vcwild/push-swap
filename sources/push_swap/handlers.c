@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 08:35:31 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/26 17:55:08 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 20:06:48 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,20 @@ static int	handle_high_complexity(t_stack *a, t_stack *b)
 	return (0);
 }
 
-int	handle_sort(t_stack *stack)
+int	handle_sort(t_stack *self)
 {
-	t_stack	alt_stack;
+	t_stack	other;
+	int		status;
 
-	alt_stack = (t_stack)
+	other = (t_stack)
 	{
 		.top = -1,
 		.vec = (int *)ft_calloc(STACK_MAX_SIZE, sizeof(int))
 	};
-	if (stack->top < STACK_SIMPLE_SORT_MAX_MEMBERS)
-		handle_simple_complexity(stack, &alt_stack);
+	if (self->top < STACK_SIMPLE_SORT_MAX_MEMBERS)
+		status = handle_simple_complexity(self, &other);
 	else
-		handle_high_complexity(stack, &alt_stack);
-	free(alt_stack.vec);
-	return (0);
+		status = handle_high_complexity(self, &other);
+	free(other.vec);
+	return (status);
 }

@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:16:44 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 07:20:33 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 19:14:49 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,6 @@ static void	handle_linebreak(const char *msg)
 		write(STDERR_FILENO, "\n", 1);
 }
 
-/**
- * @brief Handles the program exiting
- *
- * @param self The stack instance to be cleaned
- * @param msg The error message to be printed
- */
 void	die(t_stack *self, const char *msg, int errno)
 {
 	if (errno)

@@ -36,11 +36,9 @@ HEADER_FILE = push_swap.h
 HEADER = $(addprefix $(INCLUDES_PATH)/,$(HEADER_FILE))
 
 SOURCE_FILES =	main.c\
-								init.c\
 								exit.c\
 								check.c\
 								parse.c\
-								free.c\
 								helpers.c\
 								algorithms.c\
 								operations.c\

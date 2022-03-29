@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:48:41 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/26 17:54:33 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 19:13:26 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	asked_for_help(const char *arg)
 	if ((ft_strncmp(arg, "-h", 2) == 0)
 		|| (ft_strncmp(arg, "--help", 6) == 0))
 	{
-		write(STDOUT_FILENO, "Usage: ./push_swap \"[numbers]\"\n", 31);
+		write(STDOUT_FILENO, "Usage: ./push_swap \"<numbers>\"\n", 31);
 		return (1);
 	}
 	return (0);

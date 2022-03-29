@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 20:59:45 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/23 08:31:18 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:41:04 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,37 @@ void	push(t_stack *origin, t_stack *dest)
 	dest->vec[++dest->top] = origin->vec[origin->top--];
 }
 
-void	swap(t_stack *stack)
+void	swap(t_stack *self)
 {
 	int	tmp;
 
-	if (stack->top <= 0)
+	if (self->top <= 0)
 		return ;
-	tmp = stack->vec[stack->top];
-	stack->vec[stack->top] = stack->vec[stack->top - 1];
-	stack->vec[stack->top - 1] = tmp;
+	tmp = self->vec[self->top];
+	self->vec[self->top] = self->vec[self->top - 1];
+	self->vec[self->top - 1] = tmp;
 }
 
-void	rotate(t_stack *stack)
+void	rotate(t_stack *self)
 {
 	unsigned int	i;
 	int				tmp;
 
-	i = stack->top + 1;
-	tmp = stack->vec[stack->top];
+	i = self->top + 1;
+	tmp = self->vec[self->top];
 	while (--i)
-		stack->vec[i] = stack->vec[i - 1];
-	stack->vec[0] = tmp;
+		self->vec[i] = self->vec[i - 1];
+	self->vec[0] = tmp;
 }
 
-void	reverse_rotate(t_stack *stack)
+void	reverse_rotate(t_stack *self)
 {
 	int	i;
 	int	tmp;
 
 	i = -1;
-	tmp = stack->vec[0];
-	while (++i < stack->top)
-		stack->vec[i] = stack->vec[i + 1];
-	stack->vec[stack->top] = tmp;
+	tmp = self->vec[0];
+	while (++i < self->top)
+		self->vec[i] = self->vec[i + 1];
+	self->vec[self->top] = tmp;
 }
