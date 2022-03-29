@@ -9,7 +9,7 @@ class TestCli(BuildTestCase):
         command = [f"./{CLI_NAME}", "-h"]
         result = subprocess.run(command, capture_output=True).stdout
 
-        expected_result = f"Usage: ./{CLI_NAME} \"[numbers]\"\n"
+        expected_result = f"Usage: ./{CLI_NAME} \"<numbers>\"\n"
         expected_result = bytes(expected_result, "utf-8")
 
         self.assertEqual(result, expected_result)

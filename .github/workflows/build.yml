@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run linting
-      - continue-on-error: true
         run: |
           pip install -U pip
           pip install norminette
           norminette sources/ includes/
+      - continue-on-error: true
   build:
     needs: [lint]
     runs-on: ubuntu-latest
