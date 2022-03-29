@@ -7,17 +7,18 @@ on:
     branches: [main]
 
 jobs:
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Run linting
-  #     - continue-on-error: true
-  #       run: |
-  #         pip install -U pip
-  #         pip install norminette
-  #         norminette sources/ includes/
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run linting
+      - continue-on-error: true
+        run: |
+          pip install -U pip
+          pip install norminette
+          norminette sources/ includes/
   build:
+    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
