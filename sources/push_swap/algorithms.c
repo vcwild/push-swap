@@ -6,28 +6,32 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:58:06 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/26 17:09:49 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/29 17:54:27 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void	swap_temp(int *a, int *b, int *tmp)
+{
+	*tmp = *a;
+	*a = *b;
+	*b = *tmp;
+}
+
 void	insertion_sort(int *vec, size_t size)
 {
-	int				index;
-	unsigned int	iter;
-	int				tmp;
+	int	index;
+	int	iter;
+	int	labeled_value;
 
-	iter = 1;
-	while (iter < size)
+	iter = -1;
+	while (++iter < (int)(size - 1))
 	{
-		index = iter - 1;
-		tmp = vec[iter++];
-		while (index >= 0 && vec[index + 1] < vec[index])
-		{
-			vec[index + 1] = vec[index];
-			vec[index--] = tmp;
-		}
+		index = iter + 1;
+		labeled_value = vec[index];
+		while (--index >= 0 && vec[index] > vec[index + 1])
+			swap_temp(&vec[index], &vec[index + 1], &labeled_value);
 	}
 }
 
