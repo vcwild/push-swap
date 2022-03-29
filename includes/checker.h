@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/29 20:37:07 by vwildner          #+#    #+#             */
+/*   Updated: 2022/03/29 20:37:14 by vwildner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CHECKER_H
 # define CHECKER_H
 
 # define INSTRUCTIONS_BUFFER_SIZE 4096
 
-#include "push_swap.h"
+# include "push_swap.h"
 
 void	free_stack(t_stack *self);
 

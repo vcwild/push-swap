@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 19:03:20 by vwildner            #+#    #+#             */
-/*   Updated: 2022/03/23 23:08:58 by vwildner         ###   ########.fr       */
+/*   Created: 2022/03/23 19:03:20 by vwildner          #+#    #+#             */
+/*   Updated: 2022/03/29 20:36:48 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	main(int argc, char *argv[])
 	if (handle_parse_args(&stack, argc, argv))
 		die(&stack, "", 0);
 	status = get_instructions(&instructions);
-	for (int i = 0; instructions[i]; i++)
-		printf("%s\n", instructions[i]);
 	if (status)
 		message_and_exit(&stack, instructions, status);
 	execute_instructions(instructions, &stack);
