@@ -16,7 +16,6 @@ jobs:
           pip install -U pip
           pip install norminette
           norminette sources/ includes/
-      - continue-on-error: true
   build:
     needs: [lint]
     runs-on: ubuntu-latest
