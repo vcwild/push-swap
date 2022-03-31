@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:17:13 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/29 19:23:29 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/30 20:07:28 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,26 @@ static int	parse_single_arg(t_stack *self, char *arg)
 		else
 			self->vec[++self->top] = curr_num;
 	}
-	reverse_vec(self->vec, self->top + 1);
 	free_vec((void **)args_str);
+	return (status);
+}
+
+static int parse_multiple_args(t_stack *self, int argc, char *argv[])
+{
+	int	status;
+	int	i;
+
+	status = 0;
+	i = 0;
+	while (++i < argc && !status)
+		status = parse_single_arg(self, argv[i]);
+	reverse_vec(self->vec, self->top + 1);
 	return (status);
 }
 
 int	handle_parse_args(t_stack *self, int argc, char *argv[])
 {
-	if (argc == 2)
-	{
-		if (parse_single_arg(self, argv[1]))
-			return (1);
-		return (0);
-	}
-	return (1);
+	if (parse_multiple_args(self, argc, argv))
+		return (1);
+	return (0);
 }
