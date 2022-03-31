@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/29 20:17:32 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/30 22:25:06 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,13 @@ bool		check_duplicate_number(t_stack *self, int *num);
 bool		check_int(char *elem);
 
 /**
- * @brief Checks if the stack is sorted
+ * @brief Checks if the stack is sorted in the reverse order
  *
  * @param self The stack to be checked
  * @return true When the stack is sorted
- * @return false When the stack is not sorted
+ * @return false When the stack is not reverse sorted
  */
-bool		is_sorted(t_stack *self);
+bool		is_reverse_sorted(t_stack *self);
 
 /**
  * @brief Reverses the given vector.

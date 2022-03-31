@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:16:07 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/29 18:47:41 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/30 22:24:19 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	reverse_vec(int *vec, size_t size)
 	i = 0;
 }
 
-bool	is_sorted(t_stack *self)
+bool	is_reverse_sorted(t_stack *self)
 {
 	int	iter;
 
 	iter = -1;
 	while (++iter < self->top)
 	{
-		if (self->vec[iter] > self->vec[iter + 1])
+		if (self->vec[iter] < self->vec[iter + 1])
 			return (false);
 	}
 	return (true);

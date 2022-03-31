@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:54:59 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/29 20:36:19 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/30 22:24:19 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	execute_instructions(char **instructions, t_stack *a)
 			rotate_stacks(*instructions, a, &b);
 		instructions++;
 	}
-	if (is_sorted(a) || b.top > -1)
+	if (is_reverse_sorted(a) || b.top > -1)
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
 	else
 		ft_putstr_fd("OK\n", STDOUT_FILENO);
