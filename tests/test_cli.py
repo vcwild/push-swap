@@ -32,7 +32,7 @@ class TestCli(BuildTestCase):
 
         result = subprocess.run(command, capture_output=True).stderr
 
-        expected_result = "Error: Invalid number of arguments provided\n"
+        expected_result = "Error: Parse args failed\n"
         expected_result = bytes(expected_result, "utf-8")
 
         self.assertEqual(result, expected_result)
