@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:41:09 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/29 19:09:14 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/03/31 21:03:41 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	move_chunk_to_top(t_stack *a, t_stack *b, int min, int max)
 {
 	int	size;
 
-	size = max + 1;
+	size = max - min + 1;
 	while (size--)
 	{
 		move_closest_index_from_a_to_top(a, min, max);

@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:16:44 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/29 19:14:49 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/04/02 12:10:32 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,18 @@ static void	handle_linebreak(const char *msg)
 		write(STDERR_FILENO, "\n", 1);
 }
 
-void	die(t_stack *self, const char *msg, int errno)
+static void	handle_error(const char *msg, int errno)
 {
 	if (errno)
-		write(STDERR_FILENO, "Error: ", 7);
-	ft_perror(msg);
-	handle_linebreak(msg);
+	{
+		write(STDERR_FILENO, "Error", 6);
+		handle_linebreak(msg);
+	}
+}
+
+void	die(t_stack *self, const char *msg, int errno)
+{
+	handle_error(msg, errno);
 	janitor(self);
 	exit(errno);
 }

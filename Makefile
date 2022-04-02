@@ -68,8 +68,7 @@ CHECKER_SOURCE_FILES = exec.c\
 CHECKER_OBJECTS_PATH = ./objects/checker
 CHECKER_OBJECTS = $(addprefix $(CHECKER_OBJECTS_PATH)/,$(subst .c,.o,$(CHECKER_SOURCE_FILES)))
 
-SOURCES_FOR_CHECKER = free.c\
-											parse.c\
+SOURCES_FOR_CHECKER = parse.c\
 											helpers.c\
 											operations.c\
 											check.c\
