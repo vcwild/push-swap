@@ -2,7 +2,7 @@
 
 This project is about sorting a stack by using a limited number of movements that swap elements between stacks.
 
-### The program
+## The Program
 
 The main objective of the push_swap is to print to the standard otuput the instructions required to sort the stack to the left, which must be given as the program's argument. Each instruction must be followed by a line break. The stack A must be sorted from its lowest element at the top, while stack to the right must be empty.
 
