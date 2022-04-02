@@ -128,15 +128,17 @@ valgrind: $(NAME)
 test: $(NAME)
 	@$(TEST_CLI_CMD) > /dev/null
 
+bonus: $(CHECKER_NAME)
+
 re:	fclean all
 
 archives_clean:
 	$(REMOVE) $(ARCHIVES_PATH)
 
 clean:
-	$(REMOVE) $(OBJECTS_PATH)
+	$(REMOVE) $(OBJECTS_PATH) $(CHECKER_OBJECTS_PATH)
 
 fclean: clean archives_clean libft_clean get_next_line_clean
-	$(REMOVE) $(NAME)
+	$(REMOVE) $(NAME) $(CHECKER_NAME)
 
 .PHONY: all run valgrind re fclean clean archives_clean libft_clean get_next_line_clean test
