@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:54:59 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/30 22:24:19 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/04/02 16:29:25 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 static void	swap_stacks(char *op, t_stack *a, t_stack *b)
 {
-	if (ft_streq(op, SA) || ft_streq(op, SS))
+	if (not_strncmp(op, SA) || not_strncmp(op, SS))
 		swap(a);
-	if (ft_streq(op, SB) || ft_streq(op, SS))
+	if (not_strncmp(op, SB) || not_strncmp(op, SS))
 		swap(b);
 }
 
 static void	push_stacks(char *op, t_stack *a, t_stack *b)
 {
-	if (ft_streq(op, PA))
+	if (not_strncmp(op, PA))
 		push(b, a);
-	else if (ft_streq(op, PB))
+	else if (not_strncmp(op, PB))
 		push(a, b);
 }
 
 static void	rotate_stacks(char *op, t_stack *a, t_stack *b)
 {
-	if (ft_streq(op, RA) || ft_streq(op, RR))
+	if (not_strncmp(op, RA) || not_strncmp(op, RR))
 		rotate(a);
-	if (ft_streq(op, RB) || ft_streq(op, RR))
+	if (not_strncmp(op, RB) || not_strncmp(op, RR))
 		rotate(b);
-	if (ft_streq(op, RRA) || ft_streq(op, RRR))
+	if (not_strncmp(op, RRA) || not_strncmp(op, RRR))
 		reverse_rotate(a);
-	if (ft_streq(op, RRB) || ft_streq(op, RRR))
+	if (not_strncmp(op, RRB) || not_strncmp(op, RRR))
 		reverse_rotate(b);
 }
 
@@ -59,7 +59,7 @@ int	execute_instructions(char **instructions, t_stack *a)
 			rotate_stacks(*instructions, a, &b);
 		instructions++;
 	}
-	if (is_reverse_sorted(a) || b.top > -1)
+	if (!is_reverse_sorted(a) || b.top > -1)
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
 	else
 		ft_putstr_fd("OK\n", STDOUT_FILENO);

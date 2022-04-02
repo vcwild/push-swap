@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 07:17:13 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/30 21:54:13 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/04/02 14:59:39 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,7 @@ static bool	atoi_to_buff(const char *str, int *buff)
 	return (false);
 }
 
-/**
- * @brief Frees the entire memory allocated for a matrix
- *
- * @param vec The matrix to be freed
- */
-static void	free_vec(void **vec)
+void	free_vec(void **vec)
 {
 	size_t	i;
 

@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/30 22:25:06 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/04/02 14:59:41 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -296,5 +296,12 @@ int			simple_sort_complete(t_stack *a, t_stack *b);
  * @param b The second stack instance
  */
 void		complex_sort(t_stack *a, t_stack *b);
+
+/**
+ * @brief Frees the entire memory allocated for a matrix
+ *
+ * @param vec The matrix to be freed
+ */
+void	free_vec(void **vec);
 
 #endif

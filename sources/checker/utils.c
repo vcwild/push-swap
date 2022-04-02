@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:26:25 by vwildner          #+#    #+#             */
-/*   Updated: 2022/03/29 20:36:13 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/04/02 16:05:30 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 static bool	invalid_instruction(char *op)
 {
-	if (ft_streq(op, SA))
+	if (not_strncmp(op, SA))
 		return (false);
-	else if (ft_streq(op, SB))
+	else if (not_strncmp(op, SB))
 		return (false);
-	else if (ft_streq(op, SS))
+	else if (not_strncmp(op, SS))
 		return (false);
-	else if (ft_streq(op, PA))
+	else if (not_strncmp(op, PA))
 		return (false);
-	else if (ft_streq(op, PB))
+	else if (not_strncmp(op, PB))
 		return (false);
-	else if (ft_streq(op, RA))
+	else if (not_strncmp(op, RA))
 		return (false);
-	else if (ft_streq(op, RB))
+	else if (not_strncmp(op, RB))
 		return (false);
-	else if (ft_streq(op, RR))
+	else if (not_strncmp(op, RR))
 		return (false);
-	else if (ft_streq(op, RRA))
+	else if (not_strncmp(op, RRA))
 		return (false);
-	else if (ft_streq(op, RRB))
+	else if (not_strncmp(op, RRB))
 		return (false);
-	else if (ft_streq(op, RRR))
+	else if (not_strncmp(op, RRR))
 		return (false);
 	return (true);
 }
@@ -86,18 +86,4 @@ int	get_instructions(char ***instructions)
 	heap_set(instructions, buffer, i);
 	free(op);
 	return (status);
-}
-
-t_stack	*initialize(void)
-{
-	t_stack	*stack;
-
-	stack = malloc(sizeof(*stack));
-	if (!(stack))
-		return (NULL);
-	stack->vec = malloc(INSTRUCTIONS_BUFFER_SIZE * sizeof(*(stack->vec)));
-	if (!(stack->vec))
-		return (NULL);
-	stack->top = -1;
-	return (stack);
 }
