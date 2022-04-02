@@ -37,7 +37,7 @@ jobs:
       - name: Test simple algorithm
         run: |
           sudo apt-get install -y libipc-run3-perl
-          make push_swap
+          make checker
           perl runner.pl 5 --checker
   test_complex_exec:
     needs: [build]
@@ -47,5 +47,5 @@ jobs:
       - name: Test complex algorithm
         run: |
           sudo apt-get install -y libipc-run3-perl
-          make push_swap
+          make checker
           perl runner.pl 150 --checker
