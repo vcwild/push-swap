@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:47:17 by vwildner          #+#    #+#             */
-/*   Updated: 2022/04/02 14:59:41 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/04/02 16:48:41 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -302,6 +302,6 @@ void		complex_sort(t_stack *a, t_stack *b);
  *
  * @param vec The matrix to be freed
  */
-void	free_vec(void **vec);
+void		free_vec(void **vec);
 
 #endif
